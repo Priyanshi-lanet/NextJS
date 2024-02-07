@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Instagram from "@/components/Instagram";
+import Slider from "@/components/slider";
+import { SliderData } from "@/components/SliderData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="max-w-3xl mx-auto p-4"></div>
+        <Navbar />
+        <Hero
+          heading="Capture Photography"
+          message="i capture moment in nature nad keep in alice"
+        />
+        <Slider slides={SliderData} />
+        <Instagram />
+      </body>
     </html>
   );
 }
